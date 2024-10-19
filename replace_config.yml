@@ -1,0 +1,9 @@
+---
+- name: Replace Configuration on Cisco Router
+  hosts: routers
+  gather_facts: no
+  tasks:
+    - name: Run the configure replace command
+      ios_config:
+        lines:
+          - configure replace flash:ACUCM.cfg force
