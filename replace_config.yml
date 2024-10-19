@@ -3,7 +3,13 @@
   hosts: routers
   gather_facts: no
   tasks:
-    - name: Run the configure replace command
-      ios_config:
-        lines:
-          - configure replace flash:ACUCM.cfg force
+    - name: Enter global config mode
+      ios_command:
+        commands:
+          - "enable"
+          - "configure terminal"
+    
+    - name: Run configure replace command
+      ios_command:
+        commands:
+          - "configure replace flash:ACUCM.cfg force"
